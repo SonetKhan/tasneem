@@ -186,4 +186,5 @@ route::post('delete/courier/{id}', [CourierController::class, 'deleteCourier'])-
 
 route::get('add/courier', [CourierController::class, 'addCourier'])->name('add.courier');
 
+
 route::post('store/courier', [CourierController::class, 'storeCourier'])->name('store.courier');
