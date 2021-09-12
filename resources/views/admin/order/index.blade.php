@@ -37,29 +37,6 @@
 
                         </div>
                         <div class="col-md-12 mb-3">
-                            <label for="validationServerUsername">Total product</label>
-                            <input type="text" class="form-control" name="total_product" id="validationServerUsername"
-                                value="">
-
-                        </div>
-                        <div class="col-md-12 mb-3">
-                            <label for="validationServerUsername">Total price</label>
-                            <input type="text" class="form-control" name="total_price" id="validationServerUsername"
-                                value="">
-
-                        </div>
-                        <div class="col-md-12 mb-3">
-                            <label for="validationServerUsername">Discount</label>
-                            <input type="text" class="form-control" name="discount" id="validationServerUsername"
-                                value="">
-
-                        </div>
-                        <div class="col-md-12 mb-3">
-                            <label for="validationServerUsername">Paid</label>
-                            <input type="text" class="form-control" name="paid" id="validationServerUsername" value="">
-
-                        </div>
-                        <div class="col-md-12 mb-3">
                             <label for="validationServerUsername">Status</label>
                             <select class="form-select form-control" name="status" aria-label="Default select example">
                                 <option value="">Select from the menu</option>
@@ -81,12 +58,7 @@
 
 
                         </div>
-                        <div class="col-md-12 mb-3">
-                            <label for="validationServerUsername">Payment details</label>
-                            <input type="text" class="form-control" name="payment_details" id="validationServerUsername"
-                                value="">
 
-                        </div>
                         <div class="col-md-12 mb-3">
                             <label for="validationServerUsername">Courier id</label>
                             {{-- <input type="text" class="form-control" name="courier_id" id="validationServerUsername"
@@ -97,12 +69,6 @@
                                     <option value="2">Redx</option>
                                     <option value="3">Fedx</option>
                                   </select>
-
-                        </div>
-                        <div class="col-md-12 mb-3">
-                            <label for="validationServerUsername">Courier details</label>
-                            <input type="text" class="form-control" name="courier_details" id="validationServerUsername"
-                                value="">
 
                         </div>
                         <div class="col-md-12 mb-3">

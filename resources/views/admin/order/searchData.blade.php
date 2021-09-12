@@ -2,122 +2,94 @@
 
 @section('content')
 <div class="container">
-    <div class="col-lg-6">
-        <div class="card card-default">
-            <div class="card-header card-header-border-bottom">
-                <h2>Search Data</h2>
-            </div>
-            <div class="card-body">
-                <form action="" method="GET">
-                    @csrf
-                    <div class="form-row">
-                        <div class="col-md-12 mb-3">
-                            <label for="validationServer01">Customer Name</label>
-                            <input type="text" class="form-control" id="validationServer01" name="name" value="">
+    <div class="row">
+        <div class="col-lg-4">
 
+        </div>
+        <div class="col-lg-6">
+            <div class="card card-default">
+                <div class="card-header card-header-border-bottom">
+                    <h2>Search Data</h2>
+                </div>
+                <div class="card-body">
+                    <form action="" method="GET">
+                        @csrf
+                        <div class="form-row">
+                            <div class="col-md-12 mb-3">
+                                <label for="validationServer01">Customer Name</label>
+                                <input type="text" class="form-control" id="validationServer01" name="name" value="">
+    
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label for="validationServer02">Shipping address</label>
+                                <input type="text" class="form-control" name="shipping_address" id="validationServer02"
+                                    value="">
+    
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label for="validationServer02">Mobile Number</label>
+                                <input type="text" class="form-control" name="mobile" id="validationServer02" value="">
+    
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label for="validationServerUsername">Alternative Mobile</label>
+                                <input type="text" class="form-control" name="alternative_mobile"
+                                    id="validationServerUsername" value="">
+    
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label for="validationServerUsername">Status</label>
+                                <select class="form-select form-control" name="status" aria-label="Default select example">
+                                    <option value="">Select from the menu</option>
+                                    <option value="Pending">Pending</option>
+                                    <option value="Processing">Processing</option>
+                                    <option value="Shipped">Shipped</option>
+                                    <option value="Complete">completed</option>
+                                </select>
+    
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label for="validationServerUsername">Payment status</label>
+                                <select class="form-select form-control" name="payment_status"
+                                    aria-label="Default select example">
+                                    <option value="">Select from the menu</option>
+                                    <option value="Due">Due</option>
+                                    <option value="Paid">Paid</option>
+                                </select>
+                            </div>
+    
+                            <div class="col-md-12 mb-3">
+                                <label for="validationServerUsername">Courier id</label>
+                                <select class="form-select form-control" aria-label="Default select example"
+                                    name="courier_id">
+                                    <option selected>Open this select menu</option>
+                                    <option value="1">Shundorban courier service</option>
+                                    <option value="2">Redx</option>
+                                    <option value="3">Fedx</option>
+                                </select>
+    
+                            </div>
+    
+                            <div class="col-md-12 mb-3">
+                                <label for="validationServerUsername">Special Instruction</label>
+                                <input type="text" class="form-control" name="special_instruction"
+                                    id="validationServerUsername" value="">
+    
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label for="validationServerUsername">Comment</label>
+                                <input type="text" class="form-control" name="comment" id="validationServerUsername"
+                                    value="">
+    
+                            </div>
                         </div>
-                        <div class="col-md-12 mb-3">
-                            <label for="validationServer02">Shipping address</label>
-                            <input type="text" class="form-control" name="shipping_address" id="validationServer02"
-                                value="">
-
-                        </div>
-                        <div class="col-md-12 mb-3">
-                            <label for="validationServer02">Mobile Number</label>
-                            <input type="text" class="form-control" name="mobile" id="validationServer02" value="">
-
-                        </div>
-                        <div class="col-md-12 mb-3">
-                            <label for="validationServerUsername">Alternative Mobile</label>
-                            <input type="text" class="form-control" name="alternative_mobile"
-                                id="validationServerUsername" value="">
-
-                        </div>
-                        <div class="col-md-12 mb-3">
-                            <label for="validationServerUsername">Total product</label>
-                            <input type="text" class="form-control" name="total_product" id="validationServerUsername"
-                                value="">
-
-                        </div>
-                        <div class="col-md-12 mb-3">
-                            <label for="validationServerUsername">Total price</label>
-                            <input type="text" class="form-control" name="total_price" id="validationServerUsername"
-                                value="">
-
-                        </div>
-                        <div class="col-md-12 mb-3">
-                            <label for="validationServerUsername">Discount</label>
-                            <input type="text" class="form-control" name="discount" id="validationServerUsername"
-                                value="">
-
-                        </div>
-                        <div class="col-md-12 mb-3">
-                            <label for="validationServerUsername">Paid</label>
-                            <input type="text" class="form-control" name="paid" id="validationServerUsername" value="">
-
-                        </div>
-                        <div class="col-md-12 mb-3">
-                            <label for="validationServerUsername">Status</label>
-                            <select class="form-select form-control" name="status" aria-label="Default select example">
-                                <option value="">Select from the menu</option>
-                                <option value="Pending">Pending</option>
-                                <option value="Processing">Processing</option>
-                                <option value="Shipped">Shipped</option>
-                                <option value="Complete">completed</option>
-                            </select>
-
-                        </div>
-                        <div class="col-md-12 mb-3">
-                            <label for="validationServerUsername">Payment status</label>
-                            <select class="form-select form-control" name="payment_status"
-                                aria-label="Default select example">
-                                <option value="">Select from the menu</option>
-                                <option value="Due">Due</option>
-                                <option value="Paid">Paid</option>
-                            </select>
-
-
-                        </div>
-                        <div class="col-md-12 mb-3">
-                            <label for="validationServerUsername">Payment details</label>
-                            <input type="text" class="form-control" name="payment_details" id="validationServerUsername"
-                                value="">
-
-                        </div>
-                        <div class="col-md-12 mb-3">
-                            <label for="validationServerUsername">Courier id</label>
-                            <select class="form-select form-control" aria-label="Default select example" name="courier_id">
-                                <option selected>Open this select menu</option>
-                                <option value="1">Shundorban courier service</option>
-                                <option value="2">Redx</option>
-                                <option value="3">Fedx</option>
-                              </select>
-
-                        </div>
-                        <div class="col-md-12 mb-3">
-                            <label for="validationServerUsername">Courier details</label>
-                            <input type="text" class="form-control" name="courier_details" id="validationServerUsername"
-                                value="">
-
-                        </div>
-                        <div class="col-md-12 mb-3">
-                            <label for="validationServerUsername">Special Instruction</label>
-                            <input type="text" class="form-control" name="special_instruction"
-                                id="validationServerUsername" value="">
-
-                        </div>
-                        <div class="col-md-12 mb-3">
-                            <label for="validationServerUsername">Comment</label>
-                            <input type="text" class="form-control" name="comment" id="validationServerUsername"
-                                value="">
-
-                        </div>
-                    </div>
-                    <button class="btn btn-primary" type="submit">Search Data</button>
-                </form>
+                        <button class="btn btn-primary" type="submit">Search Data</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
+
 </div>
 <div class="card card-default">
     <div class="card-header card-header-border-bottom">
@@ -159,7 +131,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                        
+
                     @php($i= 1)
                     @foreach($orders as $order)
                     <tr>
@@ -189,7 +161,7 @@
                         <td>
                             <a href="{{url('delete/order/'.$order->id)}}" class="btn btn-danger btn-sm">Delete</a>
                         </td>
-                        
+
                     </tr>
                     @endforeach
                 </tbody>

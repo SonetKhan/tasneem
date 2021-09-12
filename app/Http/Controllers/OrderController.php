@@ -29,32 +29,11 @@ class OrderController extends Controller
             ->when(!empty($request->input('alternative_mobile')), function ($query) use ($request) {
                 $query->where('alternative_mobile', 'like', $request->alternative_mobile . '%');
             })
-            ->when(!empty($request->input('total_product')), function ($query) use ($request) {
-                $query->where('total_product', 'like', $request->total_product . '%');
-            })
-            ->when(!empty($request->input('total_price')), function ($query) use ($request) {
-                $query->where('total_price', 'like', $request->total_price);
-            })
-            ->when(!empty($request->input('discount')), function ($query) use ($request) {
-                $query->where('discount', 'like', $request->discount);
-            })
-            ->when(!empty($request->input('paid')), function ($query) use ($request) {
-                $query->where('paid', $request->paid);
-            })
             ->when(!empty($request->input('status')), function ($query) use ($request) {
                 $query->where('status', $request->status);
             })
             ->when(!empty($request->input('payment_status')), function ($query) use ($request) {
                 $query->where('payment_status', $request->payment_status);
-            })
-            ->when(!empty($request->input('payment_details')), function ($query) use ($request) {
-                $query->where('payment_details', 'like', $request->payment_details);
-            })
-            ->when(!empty($request->input('courier_id')), function ($query) use ($request) {
-                $query->where('courier_id', 'like', $request->courier_id);
-            })
-            ->when(!empty($request->input('courier_details')), function ($query) use ($request) {
-                $query->where('courier_details', 'like', $request->courier_details);
             })
             ->when(!empty($request->input('special_instruction')), function ($query) use ($request) {
                 $query->where('special_instruction', 'like', $request->special_instruction);
@@ -192,7 +171,7 @@ class OrderController extends Controller
     }
     public function updateProcess(Request $request, $id)
     {
-        
+
 
         $order = Order::find($id);
 
