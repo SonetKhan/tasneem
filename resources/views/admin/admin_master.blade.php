@@ -18,7 +18,7 @@
 
 
     <!-- PLUGINS CSS STYLE -->
-
+    <link rel="stylesheet" href="{{asset('backend/assets/scss/_grid.scss')}}">
     <link href="{{asset('backend/assets/plugins/toaster/toastr.min.css')}}" rel="stylesheet" />
     <link href="{{asset('backend/assets/plugins/nprogress/nprogress.css')}}" rel="stylesheet" />
     <link href="{{asset('backend/assets/plugins/flag-icons/css/flag-icon.min.css')}}" rel="stylesheet" />

@@ -43,7 +43,15 @@
 </div>
 <div class="card card-default">
     <div class="card-header card-header-border-bottom">
-        <h2>Bordered Table</h2>
+        <h2>User table</h2>
+        @if(session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{session('success')}}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        @endif
     </div>
     <div class="card-body">
         <p class="mb-5"><a href="{{route('add.users')}}" class="btn btn-success">Add User++</a> </p>
@@ -83,7 +91,7 @@
 
                         @if(auth()->id()!=$user->id)
                         <a href="{{url('admin/user/edit/'.$user->id)}}" class="btn btn-primary btn-sm">Edit</a>
-                    <a href="{{url('admin/user/update/'.$user->id)}}" class="btn btn-danger btn-sm">Delete</a>
+                    <a href="{{url('admin/user/delete/'.$user->id)}}" class="btn btn-danger btn-sm">Delete</a>
                     @endif 
                     @endif
                 </td>

@@ -64,13 +64,13 @@
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">New Password: </label>
 
-                                            <input type="password" class="form-control" name="new_password" id="exampleInputEmail1" value="" aria-describedby="emailHelp" >
+                                            <input type="password" class="form-control" name="password" id="exampleInputEmail1" value="" aria-describedby="emailHelp" >
 
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Confirmed Password: </label>
 
-                                            <input type="password" class="form-control" name="new_password_confirmation" id="exampleInputEmail1" value="" aria-describedby="emailHelp" >
+                                            <input type="password" class="form-control" name="password_confirmation" id="exampleInputEmail1" value="" aria-describedby="emailHelp" >
 
 
                                         </div>
@@ -78,6 +78,7 @@
                                             <label for="status">Choose status:</label>
 
                                             <select id="status" name="user_active" class="form-control">
+                                                <option value="">Select from this menu</option>
                                                 <option value="1">Active</option>
                                                 <option value="0">Inactive</option>
 

@@ -117,13 +117,13 @@ class UsersController extends Controller
 
         $validateData = $request->validate([
 
-            'new_password' => 'confirmed'
+            'password' => 'required|confirmed|min:6'
         ]);
 
 
         $userImage = $request->file('user_picture');
 
-        $userPassword = $request->new_password;
+        $userPassword = $request->password;
 
         if ($userImage && $userPassword) {
 
@@ -147,19 +147,9 @@ class UsersController extends Controller
 
             $user->user_picture =  $uploadedImage;
 
-            //            if($request->new_password == $request->new_password_confirmed){
-            //
-            //                $user->password = bcrypt($request->password);
-            //
-            //            }else{
-            //
-            //                return redirect()->back()->with('errors','New password and Confirmed password does not match');
-            //            }
             $user->password = bcrypt($request->password);
 
             $user->user_active = $request->user_active;
-
-
 
             $user->save();
 
@@ -199,19 +189,12 @@ class UsersController extends Controller
 
             $user->mobile = $request->mobile;
 
-            if ($request->new_password == $request->new_password_confirmed) {
-
-                $user->password = bcrypt($request->new_password);
-            } else {
-
-                return redirect()->back()->with('errors', 'New password and Confirmed password does not match');
-            }
+            $user->password = bcrypt($request->password);
 
             $user->user_active = $request->user_active;
 
-
-
             $user->save();
+
 
             return redirect()->route('all.users')->with('success', 'Information updated successfully');
         } else {

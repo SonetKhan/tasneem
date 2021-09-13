@@ -59,7 +59,7 @@
                             </div>
     
                             <div class="col-md-12 mb-3">
-                                <label for="validationServerUsername">Courier id</label>
+                                <label for="validationServerUsername">Courier</label>
                                 <select class="form-select form-control" aria-label="Default select example"
                                     name="courier_id">
                                     <option selected>Open this select menu</option>
@@ -121,7 +121,7 @@
                         <th>status</th>
                         <th>payment_status</th>
                         <th>payment_details</th>
-                        <th>courier_id</th>
+                        <th>courier</th>
                         <th>courier_details</th>
                         <th>special_instruction</th>
                         <th>comment</th>
@@ -146,8 +146,12 @@
                         <td>{{$order->paid}}</td>
                         <td>{{$order->status}}</td>
                         <td>{{$order->payment_status}}</td>
-                        <td scope="row">{{$order->payment_details}}</td>
-                        <td>{{$order->courier_id}}</td>
+                        <td>{{$order->payment_details}}</td>
+                        <td>
+                             @if ($order->courier)
+                            {{$order->courier->courier_name}}
+                            @endif
+                        </td>
                         <td>{{$order->courier_details}}</td>
                         <td>{{$order->special_instruction}}</td>
                         <td>{{$order->comment}}</td>

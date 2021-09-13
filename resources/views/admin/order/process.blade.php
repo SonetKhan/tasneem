@@ -74,9 +74,9 @@
           <div class="col-md-4">   
               <h5 class="p-1">Sub Total : </h5> <input type="number" name="total_price" class="form-control" id="sub-total" value="{{$process->total_price}}" readonly>
               <h5 class="p-1">Discount : </h5> <input type="number" name="discount" class="form-control" id="discount" value="{{$process->discount}}">
-              <h5 class="p-1">Total : </h5> <input type="number" name="total" class="form-control" id="total" value="{{$process->total_price - $process->discount}}">
+              <h5 class="p-1">Total : </h5> <input type="number" name="total" class="form-control" id="total" value="{{$process->total_price - $process->discount}}" readonly>
               <h5 class="p-1">Paid : </h5> <input type="number" name="paid" class="form-control" id="paid" value="{{$process->paid}}">
-              <h5 class="p-1">Due : </h5> <input type="number" name="due" class="form-control" id="due" value = {{$total - $process->paid}} >
+              <h5 class="p-1">Due : </h5> <input type="number" name="due" class="form-control" id="due" value = "{{$total - $process->paid}}" readonly >
               <h5 class="p-1">Payment Details : </h5> <input type="text" name="payment_details" class="form-control" id="payment_details" value={{$process->payment_details}}>
               <h5 class="p-1">Comment(Optional) : </h5> <input type="text" name="comment" class="form-control" id="comment" placeholder="Give suggesstion for improving services">
           

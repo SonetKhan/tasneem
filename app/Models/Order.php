@@ -60,6 +60,6 @@ class Order extends Model
     public function courier()
     {
 
-        return $this->belongsTo('App\Models\Courier', 'id');
+        return $this->belongsTo('App\Models\Courier');
     }
 }

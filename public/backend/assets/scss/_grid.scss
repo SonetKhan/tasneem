@@ -9,10 +9,10 @@
 /* Wrapper */
 .wrapper {
   display: flex;
-  align-items: stretch;    
+  align-items: stretch;
   flex: 1 1 auto;
   width: 100%;
-  min-height: 100vh;
+  min-height: 2vh !important; 
 }
 
 /* Page Wrapper */

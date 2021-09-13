@@ -12,8 +12,10 @@ use App\Models\OrderProduct;
 
 class OrderController extends Controller
 {
+
     public function searchOrder(Request $request)
     {
+
 
         $orders = Order::select("*")
 
@@ -24,10 +26,10 @@ class OrderController extends Controller
                 $query->where('shipping_address', 'like', $request->shipping_address . '%');
             })
             ->when(!empty($request->input('mobile')), function ($query) use ($request) {
-                $query->where('mobile', 'like', $request->mobile);
+                $query->where('mobile', $request->mobile);
             })
             ->when(!empty($request->input('alternative_mobile')), function ($query) use ($request) {
-                $query->where('alternative_mobile', 'like', $request->alternative_mobile . '%');
+                $query->where('alternative_mobile', $request->alternative_mobile . '%');
             })
             ->when(!empty($request->input('status')), function ($query) use ($request) {
                 $query->where('status', $request->status);
@@ -38,18 +40,24 @@ class OrderController extends Controller
             ->when(!empty($request->input('special_instruction')), function ($query) use ($request) {
                 $query->where('special_instruction', 'like', $request->special_instruction);
             })
+            ->when(!empty($request->input('courier_id')), function ($query) use ($request) {
+                $query->where('courier_id', $request->courier_id);
+            })
             ->when(!empty($request->input('comment')), function ($query) use ($request) {
                 $query->where('comment', 'like', $request->comment);
             })->paginate(1);
 
+
         return view('admin.order.searchData', compact('orders'));
     }
+
     public function showOrder()
     {
         $orders = Order::latest()->paginate(2);
-
+        // dd($orders);
         return view('admin.order.index', compact('orders'));
     }
+
     public function addOrder()
     {
 

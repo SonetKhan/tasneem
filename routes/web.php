@@ -76,7 +76,7 @@ Route::get('/admin/user/edit/{id}', [UsersController::class, 'edit'])->name('use
 
 Route::post('/admin/user/update/{id}', [UsersController::class, 'update'])->name('user.update');
 
-Route::get('/admin/user/delete/{id}', [UsersController::class, 'delete'])->name('user.delete');
+Route::get('admin/user/delete/{id}', [UsersController::class, 'delete'])->name('user.delete');
 
 
 /*
@@ -130,7 +130,9 @@ Route::get('admin/category/delete/{id}', [CategoryController::class, 'deleteCate
 
 
 Route::get('admin/product', [ProductController::class, 'allProduct'])->name('all.product');
+
 Route::get('admin/product/search', [ProductController::class, 'resultData'])->name('result.product');
+
 Route::get('admin/product/add', [ProductController::class, 'addProduct'])->name('add.product');
 
 Route::post('admin/product/store', [ProductController::class, 'storeProduct'])->name('store.product');
@@ -163,6 +165,7 @@ route::post('update/order/{id}', [OrderController::class, 'updateOrder'])->name(
 route::get('delete/order/{id}', [OrderController::class, 'deleteOrder'])->name('delete.order');
 
 route::get('search/order', [OrderController::class, 'searchOrder'])->name('search.order');
+
 // route::post('/categoryDetails', [OrderController::class, 'productName']);
 
 route::get('/categoryDetails', [OrderController::class, 'productName']);
@@ -182,7 +185,7 @@ route::get('edit/courier/{id}', [CourierController::class, 'editCourier'])->name
 
 route::post('update/courier/{id}', [CourierController::class, 'updateCourier'])->name('update.courier');
 
-route::post('delete/courier/{id}', [CourierController::class, 'deleteCourier'])->name('delete.courier');
+route::get('delete/courier/{id}', [CourierController::class, 'deleteCourier'])->name('delete.courier');
 
 route::get('add/courier', [CourierController::class, 'addCourier'])->name('add.courier');
 

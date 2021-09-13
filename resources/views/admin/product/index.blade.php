@@ -14,69 +14,72 @@
             </div>
             @endif
             <div class="container">
-            <div class="row">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="form-input">
+                            <div class="card card-default">
+                                <div class="card-header card-header-border-bottom">
+                                    <h2>Searching Box </h2>
+                                </div>
+                                <div class="card-body">
+                                    <form action="{{route('result.product')}}" method="GET">
+                                        <div class="form-row">
+                                            <div class="col-md-12 mb-3">
+                                                <label for="validationServer01">Product name</label>
+                                                <input type="text" name="product_name" class="form-control" value="">
+                                            </div>
+                                            <div class="col-md-12 mb-3">
+                                                <label for="validationServer02">Product Price</label>
+                                                <input type="text" name="product_price" class="form-control" value="">
 
-                <div class="col-md-8">
-                    <div class="form-input">
-                        <div class="card card-default">
-                            <div class="card-header card-header-border-bottom">
-                                <h2>Searching Box </h2>
-                            </div>
-                            <div class="card-body">
-                                <form action="{{route('result.product')}}" method="GET">
-                                    <div class="form-row">
-                                        <div class="col-md-12 mb-3">
-                                            <label for="validationServer01">Product name</label>
-                                            <input type="text" name="product_name" class="form-control" value="" >
+                                            </div>
+                                            <div class="col-md-12 mb-3">
+                                                <label for="validationServerUsername">Show in Home </label>
+                                                <select class="form-select form-control"
+                                                    aria-label="Default select example" name="show_in_home">
+                                                    <option value="">Select one from here : </option>
+                                                    <option value="Yes">Yes</option>
+                                                    <option value="No">No</option>
+
+                                                </select>
+
+                                            </div>
+                                            <div class="col-md-12 mb-3">
+                                                <label for="validationServerUsername">show in home serial</label>
+                                                <input type="text" name="show_in_home_serial" class="form-control"
+                                                    value="">
+
+                                            </div>
                                         </div>
-                                        <div class="col-md-12 mb-3">
-                                            <label for="validationServer02">Product Price</label>
-                                            <input type="text" name="product_price" class="form-control"  value="">
-                            
+                                        <div class="form-row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="validationServer03">special price</label>
+                                                <input type="text" name="special_price" class="form-control" value="">
+
+                                            </div>
+                                            <div class="col-md-3 mb-3">
+                                                <label for="validationServer04">special price start</label>
+                                                <input type="date" name="special_price_start" class="form-control"
+                                                    value="">
+
+                                            </div>
+                                            <div class="col-md-3 mb-3">
+                                                <label for="validationServer05">special price end</label>
+                                                <input type="date" name="special_price_end" class="form-control"
+                                                    value="">
+
+                                            </div>
                                         </div>
-                                        <div class="col-md-12 mb-3">
-                                            <label for="validationServerUsername">Show in Home </label>
-                                            <select class="form-select form-control" aria-label="Default select example" name="show_in_home">
-                                                <option value="">Select one from here : </option>
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
-                                                
-                                              </select>
-                                            
-                                        </div>
-                                        <div class="col-md-12 mb-3">
-                                            <label for="validationServerUsername">show in home serial</label>
-                                            <input type="text" name="show_in_home_serial" class="form-control"  value="">
-                        
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="col-md-6 mb-3">
-                                            <label for="validationServer03">special price</label>
-                                            <input type="text" name="special_price" class="form-control" value="">
-                                            
-                                        </div>
-                                        <div class="col-md-3 mb-3">
-                                            <label for="validationServer04">special price start</label>
-                                            <input type="date" name="special_price_start" class="form-control" value="">
-                                            
-                                        </div>
-                                        <div class="col-md-3 mb-3">
-                                            <label for="validationServer05">special price end</label>
-                                            <input type="date" name="special_price_end" class="form-control" value="">
-                                            
-                                        </div>
-                                    </div>
-                                    <button class="btn btn-primary" type="submit">Search</button>
-                                </form>
+                                        <button class="btn btn-primary" type="submit">Search</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-input">
-                        <a href="{{route('add.product')}}" class="btn btn-success float-right">Add
-                            product+</a></div>
+                    <div class="col-md-4">
+                        <div class="form-input">
+                            <a href="{{route('add.product')}}" class="btn btn-success float-right">Add
+                                product+</a></div>
 
                     </div>
 
@@ -84,8 +87,9 @@
 
             </div>
         </div>
-        </div>
-        <div class="card-body">
+    </div>
+    <div class="card-body">
+        <div class="container">
             <div class="row">
                 <div style="width: 100%; overflow-x: auto">
                     <table class="table display" id="myTable">
@@ -93,7 +97,7 @@
                         <thead>
                             <tr>
                                 <th>SL </th>
-                                <th>Category name</th>
+                                <th>Category_name</th>
                                 <th>product_name</th>
                                 <th>product_picture</th>
                                 <th>product_price</th>
@@ -121,7 +125,8 @@
                                 <td>{{$product->categories->category_name}}</td>
 
                                 <td>{{$product->product_name}}</td>
-                                <td><img src="{{asset($product->product_picture)}}" alt="not found" /></td>
+                                <td><img src="{{asset($product->product_picture)}}" alt="not found"
+                                        style="border-radius: 50%;" /></td>
                                 <td>{{$product->product_price}}</td>
                                 <td class="text-break" style="min-width:300px; max-width:400px;">
                                     <div style=" max-height:200px; overflow:auto;">{{$product->product_details}}</div>
@@ -145,15 +150,19 @@
                             </tr>
                             @endforeach
 
-                            
+
                         </tbody>
 
                     </table>
-                    {{$products->links("pagination::bootstrap-4")}}
+
                 </div>
             </div>
+            {{$products->links("pagination::bootstrap-4")}}
         </div>
+
     </div>
+
+</div>
 </div>
 </div>
 

@@ -8,11 +8,14 @@ use Illuminate\Support\Facades\Auth;
 
 class CourierController extends Controller
 {
+
+
     public function addcourier()
     {
 
         return view('admin.courier.create');
     }
+
     public function storeCourier(Request $request)
     {
 
