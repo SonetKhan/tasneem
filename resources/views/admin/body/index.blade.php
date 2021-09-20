@@ -5,6 +5,71 @@
     <div class="content">
         <!-- Top Statistics -->
         <div class="row">
+            <div class="col-12">
+                <!-- Recent Order Table -->
+                <div class="card card-table-border-none" id="recent-orders">
+                    <div class="card-header justify-content-between">
+                        <h2>Recent Orders Products</h2>
+                        <div class="date-change">
+                            <span>
+                                <input type="text" class="daterange" id="daterange" value="01/01/2021 - 01/15/2022" />
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card-body pt-0 pb-5">
+                        <table class="table card-table table-responsive table-responsive-large" style="width:100%">
+                            <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Product Name</th>
+                                <th class="d-none d-md-table-cell">Units</th>
+                                <th class="d-none d-md-table-cell">Order Date</th>
+                                <th class="d-none d-md-table-cell">Order Cost</th>
+                                <th>Status</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $orderProduct = \App\Models\OrderProduct::with('getOrder','product')->get();
+                                
+                                 
+                                ?>
+                                
+                            <tr>
+                                @foreach($orderProduct as $data)
+                                <td >{{$data->order_id}}</td>
+                                <td >
+                                    <a class="text-dark" href=""> {{$data->product->product_name}}</a>
+                                </td>
+                                <td class="d-none d-md-table-cell">{{$data->quantity}}</td>
+                                <td class="d-none d-md-table-cell">{{$data->created_at}}</td>
+                                <td class="d-none d-md-table-cell">{{$data->rate}}</td>
+                                <td >
+                                    <span class="badge badge-success">{{$data->getOrder->status}}</span>
+                                </td>
+                                <td class="text-right">
+                                    <div class="dropdown show d-inline-block widget-dropdown">
+                                        <a class="dropdown-toggle icon-burger-mini" href="" role="button" id="dropdown-recent-order1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static"></a>
+                                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-recent-order1">
+                                            <li class="dropdown-item">
+                                                <a href="{{url('process/order/'.$data->getOrder->id)}}">View</a>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <a href="{{url('delete/order/'.$data->getOrder->id)}}">Remove</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-xl-3 col-sm-6">
                 <div class="card card-mini mb-4">
                     <div class="card-body">
@@ -307,164 +372,6 @@
         </div>
 
         <div class="row">
-            <div class="col-12">
-                <!-- Recent Order Table -->
-                <div class="card card-table-border-none" id="recent-orders">
-                    <div class="card-header justify-content-between">
-                        <h2>Recent Orders</h2>
-                        <div class="date-range-report ">
-                            <span></span>
-                        </div>
-                    </div>
-                    <div class="card-body pt-0 pb-5">
-                        <table class="table card-table table-responsive table-responsive-large" style="width:100%">
-                            <thead>
-                            <tr>
-                                <th>Order ID</th>
-                                <th>Product Name</th>
-                                <th class="d-none d-md-table-cell">Units</th>
-                                <th class="d-none d-md-table-cell">Order Date</th>
-                                <th class="d-none d-md-table-cell">Order Cost</th>
-                                <th>Status</th>
-                                <th></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td >24541</td>
-                                <td >
-                                    <a class="text-dark" href=""> Coach Swagger</a>
-                                </td>
-                                <td class="d-none d-md-table-cell">1 Unit</td>
-                                <td class="d-none d-md-table-cell">Oct 20, 2018</td>
-                                <td class="d-none d-md-table-cell">$230</td>
-                                <td >
-                                    <span class="badge badge-success">Completed</span>
-                                </td>
-                                <td class="text-right">
-                                    <div class="dropdown show d-inline-block widget-dropdown">
-                                        <a class="dropdown-toggle icon-burger-mini" href="" role="button" id="dropdown-recent-order1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static"></a>
-                                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-recent-order1">
-                                            <li class="dropdown-item">
-                                                <a href="#">View</a>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <a href="#">Remove</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td >24541</td>
-                                <td >
-                                    <a class="text-dark" href=""> Toddler Shoes, Gucci Watch</a>
-                                </td>
-                                <td class="d-none d-md-table-cell">2 Units</td>
-                                <td class="d-none d-md-table-cell">Nov 15, 2018</td>
-                                <td class="d-none d-md-table-cell">$550</td>
-                                <td >
-                                    <span class="badge badge-warning">Delayed</span>
-                                </td>
-                                <td class="text-right">
-                                    <div class="dropdown show d-inline-block widget-dropdown">
-                                        <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdown-recent-order2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static"></a>
-                                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-recent-order2">
-                                            <li class="dropdown-item">
-                                                <a href="#">View</a>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <a href="#">Remove</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td >24541</td>
-                                <td >
-                                    <a class="text-dark" href=""> Hat Black Suits</a>
-                                </td>
-                                <td class="d-none d-md-table-cell">1 Unit</td>
-                                <td class="d-none d-md-table-cell">Nov 18, 2018</td>
-                                <td class="d-none d-md-table-cell">$325</td>
-                                <td >
-                                    <span class="badge badge-warning">On Hold</span>
-                                </td>
-                                <td class="text-right">
-                                    <div class="dropdown show d-inline-block widget-dropdown">
-                                        <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdown-recent-order3" data-toggle="dropdown" aria-haspopup="true"
-                                           aria-expanded="false" data-display="static"></a>
-                                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-recent-order3">
-                                            <li class="dropdown-item">
-                                                <a href="#">View</a>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <a href="#">Remove</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td >24541</td>
-                                <td >
-                                    <a class="text-dark" href=""> Backpack Gents, Swimming Cap Slin</a>
-                                </td>
-                                <td class="d-none d-md-table-cell">5 Units</td>
-                                <td class="d-none d-md-table-cell">Dec 13, 2018</td>
-                                <td class="d-none d-md-table-cell">$200</td>
-                                <td >
-                                    <span class="badge badge-success">Completed</span>
-                                </td>
-                                <td class="text-right">
-                                    <div class="dropdown show d-inline-block widget-dropdown">
-                                        <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdown-recent-order4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static"></a>
-                                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-recent-order4">
-                                            <li class="dropdown-item">
-                                                <a href="#">View</a>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <a href="#">Remove</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td >24541</td>
-                                <td >
-                                    <a class="text-dark" href=""> Speed 500 Ignite</a>
-                                </td>
-                                <td class="d-none d-md-table-cell">1 Unit</td>
-                                <td class="d-none d-md-table-cell">Dec 23, 2018</td>
-                                <td class="d-none d-md-table-cell">$150</td>
-                                <td >
-                                    <span class="badge badge-danger">Cancelled</span>
-                                </td>
-                                <td class="text-right">
-                                    <div class="dropdown show d-inline-block widget-dropdown">
-                                        <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdown-recent-order5" data-toggle="dropdown" aria-haspopup="true"
-                                           aria-expanded="false" data-display="static"></a>
-                                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-recent-order5">
-                                            <li class="dropdown-item">
-                                                <a href="#">View</a>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <a href="#">Remove</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
             <div class="col-xl-6">
                 <!-- To Do list -->
                 <div class="card card-default todo-table" id="todo" data-scroll-height="550">
@@ -736,6 +643,7 @@
                                     <del>$300</del>
                                     <span class="text-dark ml-3">$50</span>
                                 </p>
+
                             </div>
                         </div>
                     </div>
@@ -746,7 +654,113 @@
 
 
 
+    <script>
+        // document.onre
+        window.onload = function exampleFunction() {
+            $('.daterange').daterangepicker({
+            opens: 'left'
+          }, function(start, end, label) {
 
+              var from = start.format('YYYY-MM-DD');
+
+              var to = end.format('YYYY-MM-DD');
+
+              var _token   = $('meta[name="csrf-token"]').attr('content');
+                
+
+
+              $.ajax({
+                url: "{{route('report.show')}}",
+                type:"POST",
+                data:{
+                from:from,
+                to:to,
+                _token: _token
+                },
+                success:function(response,status){
+
+                    console.log(response);
+
+                $("#recent-orders").html(` <div class="card card-table-border-none" id="recent-orders">
+                    <div class="card-header justify-content-between">
+                      <h2>Recent Orders</h2>
+                      <div class="date-range-report ">
+                        <span>Aug 17, 2021 - Sep 15, 2021</span>
+                      </div>
+                    </div>
+                    <div class="card-body pt-0 pb-5">
+                      <table class="table card-table table-responsive table-responsive-large" style="width:100%">
+                        <thead>
+                          <tr>
+                            <th>Order ID</th>
+                            <th>Product Name</th>
+                            <th class="d-none d-md-table-cell">Units</th>
+                            <th class="d-none d-md-table-cell">Order Date</th>
+                            <th class="d-none d-md-table-cell">Order Cost</th>
+                            <th>Status</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody class="order_details">
+                         
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>`);
+                  const urlPrefix=`{{url('process/order')}}`;
+                  const deleteUrlPrefix = `{{url('delete/order')}}`;
+                  response.forEach(element => {
+
+
+                    //   var createdDate = element.get_order.created_at;
+                    //   createdDate.format('YYYY-MM-DD');
+
+
+                      $('.order_details').append(`<tr>
+                            <td>${element.order_id}</td>
+                            <td>
+                              <a class="text-dark" href=""> ${element.product.product_name}</a>
+                            </td>
+                            <td class="d-none d-md-table-cell">${element.quantity}</td>
+                            <td class="d-none d-md-table-cell">${element.get_order.created_at}</td>
+                            <td class="d-none d-md-table-cell">${element.rate}</td>
+                            <td>
+                              <span class="badge badge-success">${element.get_order.status}</span>
+                            </td>
+                            <td class="text-right">
+                              <div class="dropdown show d-inline-block widget-dropdown">
+                                <a class="dropdown-toggle icon-burger-mini" href="" role="button" id="dropdown-recent-order1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static"></a>
+                                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-recent-order1">
+                                  <li class="dropdown-item">
+                                    <a href="`+urlPrefix+"/"+element.order_id+`">View</a>
+                                  </li>
+                                  <li class="dropdown-item">
+                                    <a href="`+deleteUrlPrefix+"/"+element.order_id+`">Remove</a>
+                                  </li>
+                                </ul>
+                              </div>
+                            </td>
+                          </tr>   `);
+                  });
+                
+               
+                
+                },
+                });
+          });
+        }
+        // var value = $('#daterange').val();
+        // console.log(value);
+
+    </script>
 </div>
-
 @endsection
+{{-- @push('js')
+<script>
+    $('.daterange').daterangepicker({
+    opens: 'left'
+  }, function(start, end, label) {
+    console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+  });
+</script>
+@endpush --}}

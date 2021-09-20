@@ -2,41 +2,46 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-lg-4">
-        </div>
-    <div class="col-lg-6">
+    <div  style="float:right">
+    <p class="mb-5"><a href="{{route('add.order')}}" class="btn btn-success">Add Order+</a></p>
+    </div>
+    <div class="row">   
+    <div class="col-md-12">
         <div class="card card-default">
             <div class="card-header card-header-border-bottom">
-                <h2>Search Data</h2>
+                <h2>Filter Order</h2>
             </div>
             <div class="card-body">
                 <form action="{{route('search.order')}}" method="GET">
                     
                     <div class="form-row">
-                        <div class="col-md-12 mb-3">
+                        <div class="col-md-6 mb-3">
                             <label for="validationServer01">Customer Name</label>
                             <input type="text" class="form-control" id="validationServer01" name="name" value="">
 
                         </div>
-                        <div class="col-md-12 mb-3">
+                        <div class="col-md-6 mb-3">
                             <label for="validationServer02">Shipping address</label>
                             <input type="text" class="form-control" name="shipping_address" id="validationServer02"
                                 value="">
 
                         </div>
-                        <div class="col-md-12 mb-3">
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
                             <label for="validationServer02">Mobile Number</label>
                             <input type="text" class="form-control" name="mobile" id="validationServer02" value="">
 
                         </div>
-                        <div class="col-md-12 mb-3">
+                        <div class="col-md-6 mb-3">
                             <label for="validationServerUsername">Alternative Mobile</label>
                             <input type="text" class="form-control" name="alternative_mobile"
                                 id="validationServerUsername" value="">
 
                         </div>
-                        <div class="col-md-12 mb-3">
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
                             <label for="validationServerUsername">Status</label>
                             <select class="form-select form-control" name="status" aria-label="Default select example">
                                 <option value="">Select from the menu</option>
@@ -47,7 +52,7 @@
                             </select>
 
                         </div>
-                        <div class="col-md-12 mb-3">
+                        <div class="col-md-6 mb-3">
                             <label for="validationServerUsername">Payment status</label>
                             <select class="form-select form-control" name="payment_status"
                                 aria-label="Default select example">
@@ -58,8 +63,9 @@
 
 
                         </div>
-
-                        <div class="col-md-12 mb-3">
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
                             <label for="validationServerUsername">Courier</label>
                             {{-- <input type="text" class="form-control" name="courier_id" id="validationServerUsername"
                                 value=""> --}}
@@ -71,20 +77,23 @@
                                   </select>
 
                         </div>
-                        <div class="col-md-12 mb-3">
+                        <div class="col-md-6 mb-3">
                             <label for="validationServerUsername">Special Instruction</label>
                             <input type="text" class="form-control" name="special_instruction"
                                 id="validationServerUsername" value="">
 
                         </div>
-                        <div class="col-md-12 mb-3">
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
                             <label for="validationServerUsername">Comment</label>
                             <input type="text" class="form-control" name="comment" id="validationServerUsername"
                                 value="">
 
                         </div>
                     </div>
-                    <button class="btn btn-primary" type="submit">Search Data</button>
+                </div>
+                    <button class="btn btn-primary pt-2" type="submit">Search Data</button>
                 </form>
             </div>
         </div>
@@ -103,7 +112,6 @@
         <h2>Order Table</h2>
     </div>
     <div class="card-body">
-        <p class="mb-5"><a href="{{route('add.order')}}" class="btn btn-success btn-sm">Add Order</a></p>
         <div style="width: 100%; overflow-x: auto;">
             <table class="table">
                 <thead>
@@ -156,6 +164,7 @@
                         <td>{{$order->special_instruction}}</td>
                         <td>{{$order->comment}}</td>
                         <td>{{$order->updatedBy->name}}</td>
+                        <td><a href="{{url('invoice/pdf/'.$order->id)}}" class="btn btn-secondary btn-sm">pdf invoice</a></td>
                         <td>
                             <a href="{{url('process/order/'.$order->id)}}" class="btn btn-success btn-sm">Process</a>
                         </td>
@@ -170,9 +179,10 @@
                     @endforeach
                 </tbody>
             </table>
-            {{$orders->links("pagination::bootstrap-4")}}
+           
         </div>
     </div>
+    {{$orders->links("pagination::bootstrap-4")}}
 </div>
 </div>
 @endsection

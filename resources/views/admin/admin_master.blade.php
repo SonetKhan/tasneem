@@ -82,27 +82,27 @@
                     </button>
                     <!-- search form -->
                     <div class="search-form d-none d-lg-inline-block">
-                        
+
                         <div class="input-group">
-                            
+
                             <input type="text" name="query" id="search-input" class="form-control"
                                 placeholder="'button' 'charts' 'etc'" autofocus autocomplete="off" />
                         </div>
-                        
-                    
+
+
                     </div>
 
                     <div class="navbar-right ">
                         <ul class="nav navbar-nav">
                             <!-- Github Link Button -->
                             <li class="github-link mr-3">
-                                <a class="btn btn-outline-secondary btn-sm"
-                                    <span class="d-none d-md-inline-block mr-2">Source Code</span>
+                                <a class="btn btn-outline-secondary btn-sm" <span
+                                    class="d-none d-md-inline-block mr-2">Source Code</span>
                                     <i class="mdi mdi-github-circle"></i>
                                 </a>
 
                             </li>
-                       
+
                             <li class="dropdown notifications-menu">
                                 <button class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="mdi mdi-bell-outline"></i>
@@ -233,6 +233,7 @@
     <script src="{{asset('backend/assets/js/date-range.js')}}"></script>
     <script src="{{asset('backend/assets/js/map.js')}}"></script>
     <script src="{{asset('backend/assets/js/custom.js')}}"></script>
+    @stack('js')
 
 </body>
 

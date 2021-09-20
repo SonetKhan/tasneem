@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\OrderProduct;
+use PDF;
+use Illuminate\Http\Response;
 
 class OrderController extends Controller
 {
@@ -266,5 +268,26 @@ class OrderController extends Controller
         Order::find($id)->delete();
 
         return redirect()->route('all.orders')->with('success', 'You deleted data successfully');
+    }
+
+    public function reportShow(Request $request)
+    {
+        $start = $request->from;
+
+        $to = $request->to;
+
+        $orderProdects = array();
+
+        $allData = OrderProduct::with('getOrder', 'product')->where('created_at', '>=', "$start 00:00:00")
+            ->where('created_at', '<=', "$to 23:59:59")->get();
+
+        return response()->json($allData);
+    }
+    public function invoicePdf($id)
+    {
+
+        $invoice = Order::find($id);
+
+        return view('admin.order.invoice', compact('invoice'));
     }
 }

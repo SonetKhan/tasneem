@@ -4,6 +4,12 @@
 
 <div class="col-lg-12">
     <div class="card card-default">
+        <div class="text-right mt-3 d-block mr-2">
+            <div class="form-input">
+                <a href="{{route('add.product')}}" class="btn btn-success float-right">Add
+                    product+</a></div>
+
+        </div>
         <div class="card-header card-header-border-bottom">
             @if(session('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -15,25 +21,27 @@
             @endif
             <div class="container">
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                         <div class="form-input">
                             <div class="card card-default">
                                 <div class="card-header card-header-border-bottom">
-                                    <h2>Searching Box </h2>
+                                    <h2>Filter Product </h2>
                                 </div>
                                 <div class="card-body">
                                     <form action="{{route('result.product')}}" method="GET">
                                         <div class="form-row">
-                                            <div class="col-md-12 mb-3">
+                                            <div class="col-md-6 mb-3">
                                                 <label for="validationServer01">Product name</label>
                                                 <input type="text" name="product_name" class="form-control" value="">
                                             </div>
-                                            <div class="col-md-12 mb-3">
+                                            <div class="col-md-6 mb-3">
                                                 <label for="validationServer02">Product Price</label>
                                                 <input type="text" name="product_price" class="form-control" value="">
 
                                             </div>
-                                            <div class="col-md-12 mb-3">
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-6 mb-3">
                                                 <label for="validationServerUsername">Show in Home </label>
                                                 <select class="form-select form-control"
                                                     aria-label="Default select example" name="show_in_home">
@@ -44,7 +52,7 @@
                                                 </select>
 
                                             </div>
-                                            <div class="col-md-12 mb-3">
+                                            <div class="col-md-6 mb-3">
                                                 <label for="validationServerUsername">show in home serial</label>
                                                 <input type="text" name="show_in_home_serial" class="form-control"
                                                     value="">
@@ -70,17 +78,11 @@
 
                                             </div>
                                         </div>
-                                        <button class="btn btn-primary" type="submit">Search</button>
+                                        <button type="submit" class="btn btn-primary btn-md btn-block">Search</button>
                                     </form>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-input">
-                            <a href="{{route('add.product')}}" class="btn btn-success float-right">Add
-                                product+</a></div>
-
                     </div>
 
                 </div>

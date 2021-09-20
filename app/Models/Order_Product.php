@@ -14,4 +14,9 @@ class Order_Product extends Model
 
         return $this->belongsTo('App\Models\Proudct', 'id');
     }
+    public function order()
+    {
+
+        return $this->belongsTo('App\Models\Order');
+    }
 }

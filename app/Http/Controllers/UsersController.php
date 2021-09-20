@@ -191,7 +191,7 @@ class UsersController extends Controller
 
             $user->password = bcrypt($request->password);
 
-            $user->user_active = $request->user_active;
+            // $user->user_active = $request->user_active;
 
             $user->save();
 

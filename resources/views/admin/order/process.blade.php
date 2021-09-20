@@ -45,8 +45,11 @@
       <tbody>
         @php
         $i = 1;
+        
         $total = $process->total_price - $process->discount;
+
          $allData  =  DB::table('order_products')->where('order_id','=',$process->id)->get();
+
         @endphp
         
         @foreach($allData as $data)

@@ -55,7 +55,7 @@ class Order extends Model
     public function orderProducts()
     {
 
-        return $this->hasMany('App\Models\Order_product');
+        return $this->hasMany('App\Models\Order_product', 'order_id');
     }
     public function courier()
     {

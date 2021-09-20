@@ -174,7 +174,9 @@ route::post('/setPrice', [OrderController::class, 'setPrice'])->name('setPrice')
 
 route::post('/confrim/order', [OrderController::class, 'confirmOder'])->name('confirm.order');
 
+route::post('/report/show', [OrderController::class, 'reportShow'])->name('report.show');
 
+route::get('invoice/pdf/{id}', [OrderController::class, 'invoicePdf'])->name('invoice.pdf');
 
 
 ////....................Courier route.........................///

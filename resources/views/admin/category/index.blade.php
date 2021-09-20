@@ -3,6 +3,12 @@
 @section('content')
 
 <div class="container">
+    
+ <div class="">
+
+    <a href="{{route('add.category')}}" class="btn btn-success float-right">Add
+            category+</a></div>
+   </div>
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -18,21 +24,17 @@
                     <div class="container">
 
                     <div class="row">
-
-
-                        <div class="col-md-8">
-
-
+                        <div class="col-md-12">
 
                             <div class="card-body">
                                 <form action = "{{route('searching.data')}}" method= "GET">
                                    
                                     <div class="form-row">
-                                        <div class="col-md-12 mb-3">
+                                        <div class="col-md-6 mb-3">
                                             <label for="validationServer01">Category Name : </label>
                                             <input type="text" class="form-control" name="category_name" value="">
                                         </div>
-                                        <div class="col-md-12 mb-3">
+                                        <div class="col-md-6 mb-3">
                                             <label for="validationServer02">Display in menu :  </label>
                                             <select class="form-select form-control" aria-label="Default select example" name="display_in_menu">
                                                 <option value="">Please Select</option>
@@ -42,24 +44,21 @@
                                               </select>
                                             
                                         </div>
-                                        <div class="col-md-12 mb-3">
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-6 mb-3">
                                             <label for="validationServerUsername">Display in menu order : </label>
                                             <input type="text" class="form-control" name="display_in_meu_order">
                                             
                                         </div>
                                     </div>
-                                    <button class="btn btn-primary" type="submit">Search</button>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-md btn-block">Search Data</button>
                                 </form>
                             </div>
                         </div>
 
 
-                        <div class="col-md-4">
-
-                            <a href="{{route('add.category')}}" class="btn btn-success float-right">Add
-                                category+</a></div>
-
-                    </div>
                 </div>
                 </div>
 

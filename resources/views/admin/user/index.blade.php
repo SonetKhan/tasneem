@@ -2,9 +2,17 @@
 
 @section('content')
 <div class="card card-default">
-    <div class="card-header card-header-border-bottom">
-        <h2>User Information filter : </h2>
+    <div >
+        {{-- <p class="text-right mt-n3 d-block"><a href="{{route('add.users')}}" class="btn btn-success" style="">Add User++</a></p> --}}
+        <p class="text-right mt-3 d-block mr-2"><a href="{{route('add.users')}}" class="btn btn-success" style="">Add User++</a></p>
     </div>
+    <div class="card-header card-header-border-bottom">
+
+        <h2>User Information filter : </h2>  
+        
+    </div>
+
+  
     <div class="card-body">
         <form action="{{route('search.data')}}" method="GET">
             <div class="form-row">
@@ -37,7 +45,7 @@
                     
                 </div>
             </div>
-            <button class="btn btn-primary" type="submit">Search</button>
+            <button type="submit" class="btn btn-primary btn-md btn-block">Search Data</button>
         </form>
     </div>
 </div>
@@ -54,7 +62,7 @@
         @endif
     </div>
     <div class="card-body">
-        <p class="mb-5"><a href="{{route('add.users')}}" class="btn btn-success">Add User++</a> </p>
+       
         <table class="table table-bordered">
             <thead>
                 <tr>

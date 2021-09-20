@@ -54,8 +54,9 @@ class Product extends Model
 
         return $this->belongsTo('App\Models\User', 'updated_by', 'id');
     }
-    public function  orderProducts()
-    {
-        return $this->hasMany('App\Models\OrderProduct', 'product_id');
-    }
+    // public function  orderProducts()
+    // {
+    //     return $this->hasMany('App\Models\OrderProduct', 'product_id');
+    // }
+
 }
