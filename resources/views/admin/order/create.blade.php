@@ -227,8 +227,23 @@
             },
             success: function (data) {
                 
+                var today = new Date().getTime();
+
+                var endDate = new Date(data.special_price_end).getTime();
+
+                var startDate =new Date(data.special_price_start).getTime();
+
+                if(today >= startDate && today <= endDate){
+
+                    test.parent('td').next('td').children('.price').val(data.special_price);
+                    
+                    window.alert("Your selceted product has discount for this weekend");
+
+                }else{
+                    test.parent('td').next('td').children('.price').val(data.product_price);
+                }
+
                 
-                test.parent('td').next('td').children('.price').val(data.product_price);
             },
             error: function (data) {
                 console.log(data);
