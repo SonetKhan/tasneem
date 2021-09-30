@@ -98,6 +98,8 @@
 
                         <thead>
                             <tr>
+                                <th>Action </th>
+                                <th></th>
                                 <th>SL </th>
                                 <th>Category_name</th>
                                 <th>product_name</th>
@@ -111,7 +113,7 @@
                                 <th>show_in_home_serial </th>
                                 <th>created_by</th>
                                 <th>updated_by</th>
-                                <th>Action</th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -123,6 +125,15 @@
 
 
                             <tr>
+                                <td>
+                                    <a href="{{url('admin/product/edit/'.$product->id)}}"
+                                        class="btn btn-success btn-sm">Edit</a>
+                                </td>
+                                <td>
+                                    <a href="{{url('admin/product/delete/'.$product->id)}}"
+                                        class="btn btn-danger btn-sm">Delete</a>
+
+                                </td>
                                 <td>{{ $i++}}</td>
                                 <td>{{$product->categories->category_name}}</td>
 
@@ -140,15 +151,7 @@
                                 <td>{{$product->show_in_home_serial}}</td>
                                 <td>{{$product->createdBy->name}}</td>
                                 <td>{{$product->updatedBy->name}}</td>
-                                <td>
-                                    <a href="{{url('admin/product/edit/'.$product->id)}}"
-                                        class="btn btn-success btn-sm">Edit</a>
-                                </td>
-                                <td>
-                                    <a href="{{url('admin/product/delete/'.$product->id)}}"
-                                        class="btn btn-danger btn-sm">Delete</a>
 
-                                </td>
                             </tr>
                             @endforeach
 

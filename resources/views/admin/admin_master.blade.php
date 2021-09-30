@@ -176,7 +176,7 @@
 
                                     <li>
                                         <a href="{{url('admin/user/profile/change/password/'.auth()->user()->id)}}"> <i
-                                                class="mdi mdi-settings"></i> Chang password </a>
+                                                class="mdi mdi-settings"></i> Change password </a>
                                     </li>
 
                                     <li class="dropdown-footer">

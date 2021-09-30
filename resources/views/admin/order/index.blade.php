@@ -116,6 +116,10 @@
             <table class="table">
                 <thead>
                     <tr>
+                        <th>Action</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
                         <th>#</th>
                         <th>name</th>
                         <th>shipping_address</th>
@@ -133,7 +137,7 @@
                         <th>special_instruction</th>
                         <th>comment</th>
                         <th>updated_by</th>
-                        <th>Action</th>
+                        
 
                     </tr>
                 </thead>
@@ -143,6 +147,19 @@
                     @foreach($orders as $order)
                     
                     <tr>
+                        <td>
+                            <a href="{{url('invoice/pdf/'.$order->id)}}" class="btn btn-secondary btn-sm">pdf invoice</a>
+                        </td>
+                        <td>
+                            <a href="{{url('process/order/'.$order->id)}}" class="btn btn-success btn-sm">Process</a>
+                        </td>
+
+                        <td>
+                            <a href="{{url('edit/order/'.$order->id)}}" class="btn btn-primary btn-sm">Edit</a>
+                        </td>
+                        <td>
+                            <a href="{{url('delete/order/'.$order->id)}}" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
                         <td>{{$i++}}</td>
                         <td>{{$order->name}}</td>
                         <td>{{$order->shipping_address}}</td>
@@ -164,17 +181,6 @@
                         <td>{{$order->special_instruction}}</td>
                         <td>{{$order->comment}}</td>
                         <td>{{$order->updatedBy->name}}</td>
-                        <td><a href="{{url('invoice/pdf/'.$order->id)}}" class="btn btn-secondary btn-sm">pdf invoice</a></td>
-                        <td>
-                            <a href="{{url('process/order/'.$order->id)}}" class="btn btn-success btn-sm">Process</a>
-                        </td>
-
-                        <td>
-                            <a href="{{url('edit/order/'.$order->id)}}" class="btn btn-primary btn-sm">Edit</a>
-                        </td>
-                        <td>
-                            <a href="{{url('delete/order/'.$order->id)}}" class="btn btn-danger btn-sm">Delete</a>
-                        </td>
                     </tr>
                     @endforeach
                 </tbody>
